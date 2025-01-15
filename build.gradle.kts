@@ -1,14 +1,11 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("io.ktor.plugin") version "2.3.3"
+    kotlin("jvm") version "1.8.10" // Użyj najnowszej stabilnej wersji
+    kotlin("plugin.serialization") version "1.8.10"
     application
 }
 
-group = "com.example"
-version = "0.0.1"
-
 application {
-    mainClass.set("com.example.ApplicationKt")
+    mainClass.set("com.example.ApplicationKt") // Upewnij się, że ścieżka jest poprawna
 }
 
 repositories {
@@ -16,12 +13,14 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core:2.3.3")
-    implementation("io.ktor:ktor-server-netty:2.3.3")
-    implementation("io.ktor:ktor-server-content-negotiation:2.3.3")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
-    implementation("io.ktor:ktor-server-call-logging:2.3.3") // Add this line
-    testImplementation("io.ktor:ktor-server-tests:2.3.3")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:1.9.10")
+dependencies {
+    implementation("io.ktor:ktor-server-core:2.3.2")
+    implementation("io.ktor:ktor-server-netty:2.3.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.2")
+    implementation("io.ktor:ktor-server-content-negotiation:2.3.2")
+    implementation("io.ktor:ktor-server-call-logging:2.3.2")
+    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    testImplementation(kotlin("test"))
+}
 }
